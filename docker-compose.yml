@@ -1,0 +1,28 @@
+# Diese Konfiguration ist als Erweiterung von docker-compose.yml zu benutzen.
+# > docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+version: "3.0"
+services:
+  web:
+    build:
+      context: .
+    image: lumen-8
+    ports:
+      - "443:443"
+    environment:
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=demo
+      - DB_USERNAME=serviceuser
+      - DB_PASSWORD=secret
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:12.0
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=serviceuser
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=demo
