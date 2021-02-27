@@ -1,10 +1,10 @@
-FROM muratbastuerk/mb7-phpbase:1.0
+FROM muratbastuerk/mb7-php-base:1.0
 
 ARG WITH_XDEBUG=false
 
 # Install lumen installer (depends on composer)
-RUN if [ $WITH_LUMENINSTALLER = "false" ] ; then \
-        docker-ext-disable xdebug; \
+RUN if [ $WITH_XDEBUG = "false" ] ; then \
+        rm -rf /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini; \
     fi;
 
 # Copy app to container
