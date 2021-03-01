@@ -13,8 +13,6 @@ It comes with a container providing:
 - Composer, 
 - SSL and 
 - HTTPS 
-  
-inside.
 
 Check out the base image's project: https://github.com/MuratBastuerk/php-base. 
 
@@ -46,3 +44,4 @@ There are a few helper scripts inside the `docker`-folder:
 5. `update-composer.sh` installs your composer dependencies into the container. You should use it after you've edited your `service/composer.json`.
 6. `logs.sh` prints the log-stream of your running stack.
 7. `log-into-web.sh` logs you into the web container with bash.
+8. `stop.sh`shuts down your stack.
