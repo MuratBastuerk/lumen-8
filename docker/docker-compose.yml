@@ -1,12 +1,10 @@
-# Diese Konfiguration ist als Erweiterung von docker-compose.yml zu benutzen.
-# > docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
-
 version: "3.0"
 services:
   web:
     build:
-      context: .
-    image: lumen-8
+      context: ..
+    image: ${IMAGENAME}
+    container_name: ${WEBCONTAINER}
     ports:
       - "443:443"
     environment:
@@ -19,6 +17,7 @@ services:
     depends_on:
       - postgres
   postgres:
+    container_name: ${POSTGRESCONTAINER}
     image: postgres:12.0
     ports:
       - "5432:5432"
