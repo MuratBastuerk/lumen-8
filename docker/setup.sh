@@ -14,8 +14,9 @@ ISMAC=false
 if [[ "$OSTYPE" == "darwin"* ]]; then
 # shellcheck disable=SC2034
 ISMAC=true
-DOCKERCMD="winpty docker"
 fi;
+export ISMAC
+DOCKERCMD="winpty docker"
 export DOCKERCMD
 
 ### CREATE IMAGE ###
