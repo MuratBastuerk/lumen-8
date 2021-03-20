@@ -3,7 +3,6 @@
 ### SET & EXPORT DEFAULTS ###
 cd ..
 export IMAGENAME="${PWD##*/}"
-DOCKERCMD="docker"
 cd docker || exit
 export WEBCONTAINER="${IMAGENAME}_web"
 export POSTGRESCONTAINER="${IMAGENAME}_postgres"
@@ -11,12 +10,13 @@ export POSTGRESCONTAINER="${IMAGENAME}_postgres"
 export FOUNDIMAGE=$(docker images | grep -c "${IMAGENAME}")
 # OS TYPE
 ISMAC=false
+DOCKERCMD="winpty docker"
 if [[ "$OSTYPE" == "darwin"* ]]; then
 # shellcheck disable=SC2034
 ISMAC=true
+DOCKERCMD="docker"
 fi;
 export ISMAC
-DOCKERCMD="winpty docker"
 export DOCKERCMD
 
 ### CREATE IMAGE ###
