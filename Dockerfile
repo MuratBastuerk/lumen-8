@@ -1,4 +1,4 @@
-FROM muratbastuerk/mb7-php-base:1.0
+FROM muratbastuerk/mb7-php-base:php7.4.14-fpm-alpine3.12
 
 ARG WITH_XDEBUG=false
 
